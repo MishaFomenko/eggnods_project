@@ -137,10 +137,11 @@ const handleCheckDay = (e) => {
     var num = e.target.innerText;
     var storageString =
         "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
+    console.log(chosenDay)
     selectedDate.style.backgroundColor = "antiquewhite"
     localStorage.setItem(storageString, true)
-    daysCompleted++
-    increment();
+    daysCompleted < currentDate && daysCompleted++
+    daysCompleted < currentDate && increment();
     displayStoredNotes();
     totalDays.innerHTML = daysCompleted + "/" + dayCount;
     // console.log(daysCompleted, currentDate)
@@ -157,8 +158,8 @@ const handleMissedDay = (e) => {
         "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
     selectedDate.style.backgroundColor = "white"
     localStorage.setItem(storageString, false)
-    daysCompleted--
-    increment();
+    daysCompleted > 1 && daysCompleted--
+    daysCompleted > 1 && increment();
     displayStoredNotes();
     totalDays.innerHTML = daysCompleted + "/" + dayCount;
     // console.log(daysCompleted, currentDate)
@@ -172,22 +173,26 @@ const handleMissedDay = (e) => {
 for (let i = 0; i < currentDate; i++) {
     dayDivs[i].onclick = function (e) {
         var num = e.target.innerText;
-        // prevSelectedDay?.style.backgroundColor = "white"
 
+        // prevSelectedDay?.style.backgroundColor = "white"
 
         selectedDate = document.getElementById(e.target.id)
         // var storageString =
         //     "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
         // if (localStorage.getItem(storageString) === "false") {
-        selectedDate.style.backgroundColor = "silver";
-        dayDivs.forEach(div => {
-            if (div.id !== e.target.id) {
-                console.log(div.id, e.target.id)
-                console.log(dayDivs)
-                div.style.backgroundColor = "white";
-            }
-        }
-        )
+        // selectedDate.style.backgroundColor = "silver";
+        // dayDivs.forEach((div, i) => {
+        //     if (div.id !== e.target.id || chosenDay === "false") {
+        //         div.style.backgroundColor = "white";
+        //     } 
+        // }
+        // )
+
+        // console.log(tempString)
+
+
+        // console.log(i + 1 + ": " + chosenDay)
+
         //     localStorage.setItem(storageString, true)
         //     daysCompleted++
         //     increment();
@@ -439,7 +444,7 @@ function createLeaf(point, scale, height, grow) {
     var start = height / point.y;
     var off = events.on(grow, growLeaf);
 
-    var leaf_size = 10 / 5 / gf;
+    var leaf_size = 10 / 1.25 / gf;
 
     function growLeaf(growth) {
 
@@ -457,7 +462,7 @@ function createLeaf(point, scale, height, grow) {
                 scaleX: scale.x / leaf_size,
                 scaleY: scale.y / leaf_size / 2,
                 rotation: _.random(180) - 180,
-                fill: `rgb(${0 + 100 * gf},${_.random(110, 160) / gf * 2},0)`,
+                fill: `rgb(${0 + 50 * gf},${_.random(110, 160) / gf * 20},0)`,
                 attr: { d }
             });
 
