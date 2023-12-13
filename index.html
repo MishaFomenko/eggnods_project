@@ -73,26 +73,45 @@
         </div>
     </div>
 
-   </div>
+   <!-- </div>
    <button id="resetButton">Reset Button</button>
-   </div>
-
-   <div class="notes">
-   <button id="showFormButton">Add Notes</button>
+   </div> -->
+   <div class="notes-div">
+    <div class="notes">
+   <!-- <button id="showFormButton">Add Notes</button> -->
 
    <button id="clearNotesButton">Clear Notes</button>
+   <button id="checkDay">Check</button>
+   <button id="missedDay">Missed</button>
    <div id="inputForm">
    <label for="textInput">Enter text:</label>
    <input type="text" id="textInput">
    <button id="saveButton">Save</button>
    </div>
-
-
+   </div>
+   
    <div id="displayArea"></div>
 
-   <div id="outputValue1"></div>
+   <!-- <div id="outputValue1"></div> -->
    </div>
    </section>
+   <!-- Include jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
+<!-- <script src="tree_script.js" defer></script> -->
+<div class="tree-div">
+  <svg viewbox="0 0 550 400" preserveaspectratio="xMidYMax meet">
+<g id="stems" fill="none" stroke="green"></g>
+<g id="leaves"></g>
+</svg>
+<br />
+     <!-- <button id="create">Create</button> 
+
+    <button id="increment">Increment</button> -->
+
+</div>
+
 <script src="main.js"></script>
 </body>
 </html>
