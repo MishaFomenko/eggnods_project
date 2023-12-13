@@ -123,8 +123,6 @@ for (let i = 0; i < currentDate; i++) {
         chosenDayDiv.style.backgroundColor = "white"
     }
 
-
-
 }
 
 
